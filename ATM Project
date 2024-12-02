@@ -1,0 +1,69 @@
+#include <stdio.h> 
+#include <string.h> 
+ 
+ int balance1 = 1000000; 
+ 
+ void balance(){ 
+        printf("your balance is %d\n", balance1); 
+    } 
+ 
+void withdraw(){ 
+    int x; 
+    printf("how much would you like  to withdraw?"); 
+    scanf("%d", &x); 
+   if(balance1 >= x){ 
+    balance1 -= x; 
+    printf("you have withdrawed Rp %d\n", x); 
+    printf("you have Rp %d left\n", balance1); 
+   } 
+   else{ 
+    printf("you do not have that amount of money\n"); 
+   } 
+} 
+ 
+void deposit(){ 
+    int x; 
+    printf("how much would you like to deposit?"); 
+    scanf("%d", &x); 
+    printf("you have deposited Rp %d\n", x); 
+ 
+    balance1 += x; 
+    printf("your total balance is now Rp %d\n", balance1); 
+ 
+} 
+ 
+ 
+int main(){ 
+ 
+    char choice1[] = "balance"; 
+    char choice2[] = "withdraw"; 
+    char choice3[] = "deposit"; 
+    char choice4[] = "back"; 
+    char answer[100]; 
+    int running = 1; 
+ 
+    while(running){ 
+    printf("Bobby's ATM\n"); 
+    printf("what will you be doing today?\n"); 
+    printf("Balance\nWithdraw\nDeposit\nback\n"); 
+    scanf("%s", answer); 
+ 
+    if(strcmp(answer, choice1) == 0){ 
+        balance(); 
+    } 
+        else if(strcmp(answer, choice2) == 0){ 
+        withdraw(); 
+     } 
+            else if(strcmp(answer, choice3) == 0){ 
+                deposit(); 
+            } 
+                else if(strcmp(answer, choice4) == 0){ 
+                    printf("thank you for using my ATM!"); 
+                    running = 0; 
+            } 
+    else{ 
+        printf("please choose the choices provided"); 
+    } 
+} 
+return 0; 
+}
